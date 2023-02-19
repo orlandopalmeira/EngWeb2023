@@ -1,0 +1,78 @@
+body{
+    font-family: Arial, Helvetica, sans-serif; /*fonte do texto da página*/
+    width: 100vw; /* Define a largura do body como 100% da largura do ecrã */
+    height: 100vh; /* Define a altura do body como 100% da altura do ecrã */
+    overflow: hidden; /* Impede que a página tenha scroll */
+    /*Questões estéticas*/
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+#colIndice{
+    padding: 20px; /*efeitos de design, impede que o texto do índice não se encoste completamento ao texto do conteúdo*/
+    box-sizing: border-box; /*Para manter o tamanho original para evitar estragos feitos pelo padding*/
+    width:20%; /*Largura da coluna*/
+    height: 100%; /*Altura da coluna*/
+    vertical-align: top; /*Serve para o índice não ficar centrado verticalmente*/
+    background-color: rgb(196, 196, 196); /*Cor de fundo da coluna do índice*/
+    float: left; /*Para o índice ficar à esquerda*/
+}
+
+#colConteudo{
+    padding: 20px; /*efeitos de design, impede que o texto do índice não se encoste completamento ao texto do conteúdo*/
+    box-sizing: border-box; /*Para manter o tamanho original para evitar estragos feitos pelo padding*/
+    width:80%; /*Largura da coluna*/
+    height: 100%; /*Altura da coluna*/
+    float: right; /*Para o conteúdo ficar à direita*/
+    overflow-x: hidden; /*BLoqueia scroll horizontal*/
+    overflow-y: auto; /*Ativa o scroll vertical se necessário*/
+}
+
+.container {
+    display: flex;
+}
+
+.left{
+    float: left;
+}
+
+.right{
+    float: right;
+}
+
+.aIndex {
+    font-weight: bold; /* texto em negrito*/
+    color: black; /*Evita que o texto fique roxo após o clique*/
+    text-decoration: none; /* Tira a linha por baixo do texto*/
+}
+
+.aIndex:hover{ /*põe o texto mais transparente quando o cursor está por cima da entrada*/
+    opacity: 50%;
+}
+
+.wrapper{ /*Os elementos de uma div wrapper são apresentados numa matriz de quatro colunas*/
+    display: grid; /* define como matriz/grelha */
+    grid-template-columns: 1fr 1fr 1fr 1fr; /*define que a grelha tem 4 colunas*/
+}
+
+.wrapper figure img { /*ajusta a largura das imagens dos pontos turísticos para que estas tenham todas a largura de 100%*/
+    width: 100%;
+}
+
+figcaption{
+    text-align: center; /*coloca as legendas das fotos ao centro*/
+}
+
+p{
+    text-align: justify; /*justifica o texto dos parágrafos*/
+}
+
+li{
+    margin-bottom: 15px; /*Aumenta o espaçamento entre as entradas do índice*/
+}
+
+td{
+    font-size: 12pt;
+    padding: 7px;
+}
