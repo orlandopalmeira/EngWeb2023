@@ -30,7 +30,7 @@ exports.initPage = function () {
 
         <div class="w3-container">
             <a href="http://localhost:7777/pessoas">Lista de pessoas</a> <br>
-            <a href="http://localhost:7777/pessoasAsc">Lista de pessoas ordenada</a> <br>
+            <a href="http://localhost:7777/pessoas?order=asc">Lista de pessoas ordenada</a> <br>
             <a href="http://localhost:7777/sexo">Distribuição por sexo</a> <br>
             <a href="http://localhost:7777/desporto">Distribuição por desporto</a> <br>
             <a href="http://localhost:7777/profissao">Top 10 profissões</a>
@@ -62,8 +62,8 @@ exports.peoplePage = function(list){ // recebe uma lista de pessoas
 
         <div class="w3-bar w3-teal">
             <a href="http://localhost:7777/pessoas" class="w3-bar-item w3-button w3-mobile">Ordem normal</a>
-            <a href="http://localhost:7777/pessoasAsc" class="w3-bar-item w3-button w3-mobile">Ordem alfabética crescente</a>
-            <a href="http://localhost:7777/pessoasDesc" class="w3-bar-item w3-button w3-mobile">Ordem alfabética decrescente</a>
+            <a href="http://localhost:7777/pessoas?order=asc" class="w3-bar-item w3-button w3-mobile">Ordem alfabética crescente</a>
+            <a href="http://localhost:7777/pessoas?order=desc" class="w3-bar-item w3-button w3-mobile">Ordem alfabética decrescente</a>
         </div>
 
         <div class="w3-container">
@@ -80,7 +80,7 @@ exports.peoplePage = function(list){ // recebe uma lista de pessoas
         pagHTML += `
                 <tr>
                     <td>${pessoa.id}</th>
-                    <td><a href="http://localhost:7777/pessoas/${pessoa.id}">${pessoa.nome}</a></td>
+                    <td><a href="http://localhost:7777/pessoas?id=${pessoa.id}">${pessoa.nome}</a></td>
                     <td>${pessoa.idade}</td>
                     <td>${pessoa.sexo}</td>
                     <td>${pessoa.morada.cidade}</td>
@@ -132,7 +132,7 @@ exports.gendersPage = function(list){
         pagHTML += `
                 <tr>
                     <td>${key}</td>
-                    <td><a href="http://localhost:7777/sexo/${key}">${sexos[key]}</a></td>
+                    <td><a href="http://localhost:7777/pessoas?sexo=${key}">${sexos[key]}</a></td>
                 </tr>
         `
     }
@@ -175,7 +175,7 @@ exports.genderPage = function(gender, list) {
         `
         for(const key in sexos){
             pagHTML += `
-            <a href="http://localhost:7777/sexo/${key}" class="w3-bar-item w3-button w3-mobile">Sexo: ${key} (${sexos[key]})</a>
+            <a href="http://localhost:7777/pessoas?sexo=${key}" class="w3-bar-item w3-button w3-mobile">Sexo: ${key} (${sexos[key]})</a>
             `
         }
         pagHTML += `
@@ -193,7 +193,7 @@ exports.genderPage = function(gender, list) {
         pagHTML += `
                 <tr>
                     <td>${pessoa.id}</td>
-                    <td><a href="http://localhost:7777/pessoas/${pessoa.id}">${pessoa.nome}</a></td>
+                    <td><a href="http://localhost:7777/pessoas?id=${pessoa.id}">${pessoa.nome}</a></td>
                     <td>${pessoa.idade}</td>
                     <td>${pessoa.morada.cidade}</td>
                 </tr>
@@ -250,7 +250,7 @@ exports.sportsPage = function(list) {
         pagHTML += `
                 <tr>
                     <td>${key}</td>
-                    <td><a href="http://localhost:7777/desporto/${key}">${desportos[key]}</a></td>
+                    <td><a href="http://localhost:7777/pessoas?desporto=${key}">${desportos[key]}</a></td>
                 </tr>
         `
     }
@@ -300,7 +300,7 @@ exports.sportPage = function (sport, list){
         `
         for(const key in desportos){
             pagHTML += `
-                <a href="http://localhost:7777/desporto/${key}" class="w3-bar-item w3-button w3-mobile">${key} (${desportos[key]})</a>
+                <a href="http://localhost:7777/pessoas?desporto=${key}" class="w3-bar-item w3-button w3-mobile">${key} (${desportos[key]})</a>
             `
         }
         pagHTML += `
@@ -320,7 +320,7 @@ exports.sportPage = function (sport, list){
         pagHTML += `
                 <tr>
                     <td>${pessoa.id}</td>
-                    <td><a href="http://localhost:7777/pessoas/${pessoa.id}">${pessoa.nome}</a></td>
+                    <td><a href="http://localhost:7777/pessoas?id=${pessoa.id}">${pessoa.nome}</a></td>
                     <td>${pessoa.idade}</td>
                     <td>${pessoa.morada.cidade}</td>
                 </tr>
@@ -377,7 +377,7 @@ exports.jobsPage = function (list) {
         pagHTML += `
                 <tr>
                     <td>${elem[0]}</td>
-                    <td><a href="http://localhost:7777/profissao/${elem[0]}">${elem[1]}</a></td>
+                    <td><a href="http://localhost:7777/pessoas?profissao=${elem[0]}">${elem[1]}</a></td>
                 </tr>
         `
     })
@@ -427,7 +427,7 @@ exports.jobPage = function (job, list){
         `
         arr.forEach(job_ => {
             pagHTML += `
-                <a href="http://localhost:7777/profissao/${job_[0]}" class="w3-bar-item w3-button w3-mobile">${job_[0]} (${job_[1]})</a>
+                <a href="http://localhost:7777/pessoas?profissao=${job_[0]}" class="w3-bar-item w3-button w3-mobile">${job_[0]} (${job_[1]})</a>
             `
         })
         pagHTML += `
@@ -447,7 +447,7 @@ exports.jobPage = function (job, list){
         pagHTML += `
                 <tr>
                     <td>${pessoa.id}</td>
-                    <td><a href="http://localhost:7777/pessoas/${pessoa.id}">${pessoa.nome}</a></td>
+                    <td><a href="http://localhost:7777/pessoas?id=${pessoa.id}">${pessoa.nome}</a></td>
                     <td>${pessoa.idade}</td>
                     <td>${pessoa.morada.cidade}</td>
                 </tr>
@@ -490,7 +490,7 @@ exports.personPage = function (pID, list){
     `
     list.forEach(person_ => {
         pagHTML += `
-            <a href="http://localhost:7777/pessoas/${person_.id}" class="w3-bar-item w3-button w3-mobile">${person_.nome}</a>
+            <a href="http://localhost:7777/pessoas?id=${person_.id}" class="w3-bar-item w3-button w3-mobile">${person_.nome}</a>
         `
     })
     pagHTML += `
