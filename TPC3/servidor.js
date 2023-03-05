@@ -41,8 +41,7 @@ http.createServer((req, res) => {
             axios.get('http://localhost:3000/pessoas')
                 .then(function (resp) { // correu tudo bem
                     res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
-                    let pessoas = resp.data // lista de objetos/dicionarios
-                    res.end(pages.peoplePage(pessoas))
+                    res.end(pages.peoplePage(resp.data))
                 }).catch(erro => { // algo correu mal
                     res.writeHead(500, {'Content-Type': 'text/html; charset=utf-8'});
                     res.end(`<h1 align="center">500 Error: ${erro}</h1>`)
@@ -52,8 +51,7 @@ http.createServer((req, res) => {
             axios.get('http://localhost:3000/pessoas')
                 .then(function (resp) { // correu tudo bem
                     res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
-                    let pessoas = resp.data // lista de objetos/dicionarios
-                    res.end(pages.gendersPage(pessoas))
+                    res.end(pages.gendersPage(resp.data))
                 }).catch(erro => { // algo correu mal
                     res.writeHead(500, {'Content-Type': 'text/html; charset=utf-8'});
                     res.end(`<h1 align="center">500 Error: ${erro}</h1>`)
@@ -63,8 +61,7 @@ http.createServer((req, res) => {
             axios.get('http://localhost:3000/pessoas')
                 .then(function (resp) { // correu tudo bem
                     res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
-                    let pessoas = resp.data // lista de objetos/dicionarios
-                    res.end(pages.sportsPage(pessoas))
+                    res.end(pages.sportsPage(resp.data))
                 }).catch(erro => { // algo correu mal
                     res.writeHead(500, {'Content-Type': 'text/html; charset=utf-8'});
                     res.end(`<h1 align="center">500 Error: ${erro}</h1>`)
@@ -74,8 +71,7 @@ http.createServer((req, res) => {
             axios.get('http://localhost:3000/pessoas')
                 .then(function (resp) { // correu tudo bem
                     res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
-                    let pessoas = resp.data // lista de objetos/dicionarios
-                    res.end(pages.jobsPage(pessoas))
+                    res.end(pages.jobsPage(resp.data))
                 }).catch(erro => { // algo correu mal
                     res.writeHead(500, {'Content-Type': 'text/html; charset=utf-8'});
                     res.end(`<h1 align="center">500 Error: ${erro}</h1>`)
