@@ -1,0 +1,104 @@
+extends layout
+
+block content
+    .w3-card-4
+        header.w3-container.w3-blue
+            h1
+                b TODO List App
+        .w3-row.w3-margin
+            .w3-half.w3-container.w3-card
+                h3.w3-margin-bottom Adicionar uma tarefa
+                form(method="post")
+                    input(type="hidden" name="_method" value="_post_task")
+                    .w3-row.w3-margin-bottom
+                        .w3-col(style="width:40px")
+                            i.w3-xlarge.fa.fa-calendar.w3-text-blue
+                        .w3-rest
+                            input.w3-input(style="height: 25px;" type="date" name="due_date")
+
+                    .w3-row.w3-margin-bottom
+                        .w3-col(style="width:40px")
+                            i.w3-xlarge.fa.fa-user.w3-text-blue
+                        .w3-rest
+                            input.w3-input(style="height: 25px;" placeholder="Nome do responsável" name="who")
+                    .w3-row.w3-margin-bottom
+                        .w3-col(style="width:40px")
+                             i.w3-xlarge.fa.fa-file-text-o.w3-text-blue
+                        .w3-rest
+                            input.w3-input(style="height: 25px;" placeholder="Descrição da tarefa" name="what")
+                    button.w3-btn.w3-blue.w3-right.w3-margin-bottom(type="submit") Adicionar
+            .w3-half.w3-container.w3-card
+                h3.w3-margin-bottom Adicionar um utilizador
+                form(method="post")
+                    input(type="hidden" name="_method" value="_post_user")
+                    .w3-row
+                        .w3-col(style="width:40px")
+                            i.w3-xlarge.fa.fa-user.w3-text-blue
+                        .w3-rest
+                            input.w3-input(style="height: 25px;" placeholder="Nome do novo utilizador" name="id")
+                    div(style="height: 100px;")
+                    button.w3-btn.w3-blue.w3-right.w3-margin-bottom(type="submit") Adicionar
+        .w3-container.w3-card.w3-row.w3-margin(style="max-height: 51vh; overflow-y: auto;")
+            .w3-half
+                h3 Tarefas não concluídas
+                each task in not_finished
+                    form.w3-card.w3-padding.w3-margin-bottom(style="margin-right: 8px;" method="post")
+                        input(type="hidden", name="_method", value="_put_task")
+                        .w3-row.w3-margin-bottom
+                            .w3-col(style="width:40px")
+                                i.w3-xlarge.fa.fa-key.w3-text-blue
+                            .w3-rest
+                                input.w3-input(style="height: 25px;" value=task.id name="id" readonly)
+                        .w3-row.w3-margin-bottom
+                            .w3-col(style="width:40px")
+                                i.w3-xlarge.fa.fa-calendar.w3-text-blue
+                            .w3-rest
+                                input.w3-input(style="height: 25px;" type="date" name="due_date" value=task.due_date)
+                        .w3-row.w3-margin-bottom
+                            .w3-col(style="width:40px")
+                                i.w3-xlarge.fa.fa-user.w3-text-blue
+                            .w3-rest
+                                input.w3-input(style="height: 25px;" type="text" name="who" value=task.who)
+                        .w3-row.w3-margin-bottom
+                            .w3-col(style="width:40px")
+                                i.w3-xlarge.fa.fa-file-text-o.w3-text-blue
+                            .w3-rest
+                                input.w3-input(style="height: 25px" type="text" name="what" value=task.what)
+                        input(type="hidden" name="finished" value=task.finished)
+                        .w3-row
+                            button.w3-btn.w3-blue.w3-right(name="pressedButton" value="concluida") Concluída
+                            button.w3-btn.w3-blue.w3-right.w3-margin-right(name="pressedButton" value="editar") Editar
+                            a.w3-btn.w3-blue.w3-right.w3-margin-right(href="/tasks/deleteConfirm/" + task.id) Apagar
+            .w3-half
+                h3 Tarefas concluídas
+                each task in finished
+                    form.w3-card.w3-padding.w3-margin-bottom(style="margin-left: 8px;" method="post")
+                        input(type="hidden" name="_method" value="_put_task")
+                        .w3-row.w3-margin-bottom
+                            .w3-col(style="width:40px")
+                                i.w3-xlarge.fa.fa-key.w3-text-blue
+                            .w3-rest
+                                input.w3-input(style="height: 25px;" value=task.id name="id" readonly)
+                        .w3-row.w3-margin-bottom
+                            .w3-col(style="width:40px")
+                                i.w3-xlarge.fa.fa-user.w3-text-blue
+                            .w3-rest
+                                input.w3-input(style="height: 25px;" type="date" name="due_date" value=task.due_date)
+                        .w3-row.w3-margin-bottom
+                            .w3-col(style="width:40px")
+                                i.w3-xlarge.fa.fa-calendar.w3-text-blue
+                            .w3-rest
+                                input.w3-input(style="height: 25px;" type="text" name="who" value=task.who)
+                        .w3-row.w3-margin-bottom
+                            .w3-col(style="width:40px")
+                                i.w3-xlarge.fa.fa-file-text-o.w3-text-blue
+                            .w3-rest
+                                input.w3-input(style="height: 25px;" type="text" name="what" value=task.what)
+                        input(type="hidden" name="finished" value=task.finished)
+                        .w3-row
+                            button.w3-btn.w3-blue.w3-right(type="submit" name="pressedButton" value="nao_concluida") Não concluída
+                            button.w3-btn.w3-blue.w3-right.w3-margin-right(type="submit" name="pressedButton" value="editar") Editar
+                            a.w3-btn.w3-blue.w3-right.w3-margin-right(href="/tasks/deleteConfirm/" + task.id) Apagar
+        footer.w3-container.w3-blue
+            h5.w3-center &copy 2023 Orlando Palmeira
+

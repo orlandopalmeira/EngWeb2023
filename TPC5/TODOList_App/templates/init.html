@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="../public/images/favicon.png">
+    <link rel="stylesheet" href="../public/stylesheets/w3.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <title>Todo list app</title>
+</head>
+<body>
+    <div class="w3-card-4">
+        <header class="w3-container w3-blue">
+            <h1><b>TODO List App</b></h1>
+        </header>
+        
+        <div class="w3-row w3-margin">
+            <div class="w3-half w3-container w3-card">
+                <h3 class="w3-margin-bottom">Adicionar uma tarefa</h3>
+                <form method="POST">
+                    <input type="hidden" name="_method" value="_post_task"/>
+                    <div class="w3-row w3-margin-bottom">
+                        <div class="w3-col" style="width:40px"><i class="w3-xlarge fa fa-calendar w3-text-blue"></i></div>
+                        <div class="w3-rest">
+                            <input class="w3-input" style="height: 25px;" type="date" name="due_date"/>
+                        </div>
+                    </div>
+                    <div class="w3-row w3-margin-bottom">
+                        <div class="w3-col" style="width:40px"><i class="w3-xlarge fa fa-user w3-text-blue"></i></div>
+                        <div class="w3-rest">
+                            <input class="w3-input" style="height: 25px;" placeholder="Nome do responsável" name="who"/>
+                        </div>
+                    </div>
+                    <div class="w3-row w3-margin-bottom">
+                        <div class="w3-col" style="width:40px"><i class="w3-xlarge fa fa-file-text-o w3-text-blue"></i></div>
+                        <div class="w3-rest">
+                            <input class="w3-input" style="height: 25px;" placeholder="Descrição da tarefa" name="what"/>
+                        </div>
+                    </div>
+                    <button class="w3-btn w3-blue w3-right w3-margin-bottom" type="submit">Adicionar</button>
+                </form>
+            </div>
+            <div class="w3-half w3-container w3-card">
+                <h3 class="w3-margin-bottom">Adicionar um utilizador</h3>
+                <form method="post">
+                    <input type="hidden" name="_method" value="_post_user">
+                    <div class="w3-row">
+                        <div class="w3-col" style="width:40px"><i class="w3-xlarge fa fa-user w3-text-blue"></i></div>
+                        <div class="w3-rest">
+                            <input class="w3-input" style="height: 25px;" placeholder="Nome do novo utilizador" name="id"/>
+                        </div>
+                    </div>
+                    <div style="height: 103px;">
+                        <!--Espaço vazio para alinhar a altura deste formulário (questões estéticas) -->
+                    </div>
+                    <button class="w3-btn w3-blue w3-right w3-margin-bottom" type="submit">Adicionar</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="w3-container w3-card w3-row w3-margin" style="max-height: 55vh; overflow-y: auto;">
+            <div class="w3-half">
+                <h3>Tarefas não concluídas</h3>
+                <form class="w3-card w3-padding w3-margin-bottom" style="margin-right: 8px;" method="post">
+                    <input type="hidden" name="_method" value="_put_task"/>
+                    <div class="w3-row w3-margin-bottom">
+                        <div class="w3-col" style="width:40px"><i class="w3-xlarge fa fa-key w3-text-blue"></i></div>
+                        <div class="w3-rest">
+                            <input class="w3-input" style="height: 25px;" value="ID da tarefa" name="id" readonly/>
+                        </div>
+                    </div>
+                    <div class="w3-row w3-margin-bottom">
+                        <div class="w3-col" style="width:40px"><i class="w3-xlarge fa fa-calendar w3-text-blue"></i></div>
+                        <div class="w3-rest">
+                            <input class="w3-input" style="height: 25px;" type="date" name="due_date" value="Data fim"/>
+                        </div>
+                    </div>
+                    <div class="w3-row w3-margin-bottom">
+                        <div class="w3-col" style="width:40px;"><i class="w3-xlarge fa fa-user w3-text-blue"></i></div>
+                        <div class="w3-rest">
+                            <input class="w3-input" style="height: 25px;" type="text" name="who" value="Nome do responsável"/>
+                        </div>
+                    </div>
+                    <div class="w3-row w3-margin-bottom">
+                        <div class="w3-col" style="width:40px;"><i class="w3-xlarge fa fa-file-text-o w3-text-blue"></i></div>
+                        <div class="w3-rest">
+                            <input class="w3-input" style="height: 25px;" type="text" name="what" value="Descrição da tarefa"/>
+                        </div>
+                    </div>
+                    <input type="hidden" name="finished" value="valor finished da tarefa"/>
+                    <div class="w3-row">
+                        <button name="pressedButton" value="concluida" class="w3-btn w3-blue w3-right">Concluída</button>
+                        <button name="pressedButton" value="editar" class="w3-btn w3-blue w3-right w3-margin-right">Editar</button>
+                        <a class="w3-btn w3-blue w3-right w3-margin-right" href="/tasks/deleteConfirm/:idTask">Apagar</a>
+                    </div>
+                </form>
+            </div>
+            <div class="w3-half">
+                <h3>Tarefas concluídas</h3>
+                <form class="w3-card w3-padding w3-margin-bottom" style="margin-left: 8px;" method="post">
+                    <input type="hidden" name="_method" value="_put_task"/>
+                    <div class="w3-row w3-margin-bottom">
+                        <div class="w3-col" style="width:40px"><i class="w3-xlarge fa fa-key w3-text-blue"></i></div>
+                        <div class="w3-rest">
+                            <input class="w3-input" style="height: 25px;" value="ID da tarefa" name="id" readonly/>
+                        </div>
+                    </div>
+                    <div class="w3-row w3-margin-bottom">
+                        <div class="w3-col" style="width:40px"><i class="w3-xlarge fa fa-calendar w3-text-blue"></i></div>
+                        <div class="w3-rest">
+                            <input class="w3-input" style="height: 25px;" type="date" name="due_date" value="Data fim"/>
+                        </div>
+                    </div>
+                    <div class="w3-row w3-margin-bottom">
+                        <div class="w3-col" style="width:40px;"><i class="w3-xlarge fa fa-user w3-text-blue"></i></div>
+                        <div class="w3-rest">
+                            <input class="w3-input" style="height: 25px;" type="text" name="who" value="Nome do responsável"/>
+                        </div>
+                    </div>
+                    <div class="w3-row w3-margin-bottom">
+                        <div class="w3-col" style="width:40px;"><i class="w3-xlarge fa fa-file-text-o w3-text-blue"></i></div>
+                        <div class="w3-rest">
+                            <input class="w3-input" style="height: 25px;" type="text" name="what" value="Descrição da tarefa"/>
+                        </div>
+                    </div>
+                    <input type="hidden" name="finished" value="valor finished da tarefa"/>
+                    <div class="w3-row">
+                        <button type="submit" name="pressedButton" value="nao_concluida" class="w3-btn w3-blue w3-right">Não concluída</button>
+                        <button type="submit" name="pressedButton" value="editar" class="w3-btn w3-blue w3-right w3-margin-right">Editar</button>
+                        <a class="w3-btn w3-blue w3-right w3-margin-right" href="/tasks/deleteConfirm/:idTask">Apagar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <footer class="w3-container w3-blue">
+          <h5 class="w3-center"> &copy 2023 Orlando Palmeira</h5>
+        </footer>
+        
+    </div>
+</body>
+</html>
