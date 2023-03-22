@@ -1,0 +1,26 @@
+('BI', '_id', 'animais', 'atributos', 'desportos', 'destinos_favoritos', 'figura_publica_pt', 'idade', 'marca_carro', 'morada', 'nome', 'partido_politico', 'profissao', 'religiao', 'sexo')
+('CC', '_id', 'animais', 'atributos', 'descrição', 'desportos', 'destinos_favoritos', 'figura_publica_pt', 'idade', 'marca_carro', 'morada', 'nome', 'partido_politico', 'profissao', 'religiao', 'sexo')
+('BI', '_id', 'animais', 'atributos', 'descrição', 'desportos', 'destinos_favoritos', 'figura_publica_pt', 'idade', 'marca_carro', 'morada', 'nome', 'partido_politico', 'profissao', 'religiao', 'sexo')
+('BI', '_id', 'animais', 'atributos', 'descrição', 'desportos', 'destinos_favoritos', 'figura_publica_pt', 'idade', 'marca_carro', 'morada', 'nome', 'partido_politico', 'profissao', 'sexo')
+('CC', '_id', 'animais', 'atributos', 'descrição', 'desportos', 'destinos_favoritos', 'figura_publica_pt', 'idade', 'marca_carro', 'morada', 'nome', 'partido_politico', 'profissao', 'sexo')
+('BI', '_id', 'animais', 'atributos', 'desportos', 'destinos_favoritos', 'figura_publica_pt', 'idade', 'marca_carro', 'morada', 'nome', 'partido_politico', 'profissao', 'sexo')
+('CC', '_id', 'animais', 'atributos', 'desportos', 'destinos_favoritos', 'figura_publica_pt', 'idade', 'marca_carro', 'morada', 'nome', 'partido_politico', 'profissao', 'religiao', 'sexo')
+('CC', '_id', 'animais', 'atributos', 'desportos', 'destinos_favoritos', 'figura_publica_pt', 'idade', 'marca_carro', 'morada', 'nome', 'partido_politico', 'profissao', 'sexo')
+
+_id
+CC
+BI
+animais
+destinos_favoritos
+marca_carro
+atributos
+figura_publica_pt
+desportos
+idade
+morada
+nome
+partido_politico
+sexo
+profissao
+descrição
+religiao
